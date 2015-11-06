@@ -9,5 +9,8 @@ public class WrapperClass extends MyClass {
 	public void method2() {
     	System.out.println("This is overridden method 2 - " + delagate);
     }
+    
+    @Override
+    public void methodN() { }
 
 }

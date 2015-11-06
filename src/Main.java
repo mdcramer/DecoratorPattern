@@ -22,6 +22,24 @@ public class Main {
 		proxified.method1();
 		proxified.method2();
 		proxified.method3();
+		long start = System.currentTimeMillis();
+		for (int i = 0; i < 1000000000; i++) {
+			unwrapped.methodN();
+		}
+		long end = System.currentTimeMillis();
+		System.out.println(">>> unwrapped time = " + (end - start));
+		start = System.currentTimeMillis();
+		for (int i = 0; i < 1000000; i++) {
+			proxified.methodN();
+		}
+		end = System.currentTimeMillis();
+		System.out.println(">>> proxified time = " + (end - start));
+		start = System.currentTimeMillis();
+		for (int i = 0; i < 1000000; i++) {
+			wrapped.methodN();
+		}
+		end = System.currentTimeMillis();
+		System.out.println(">>> wrapped time = " + (end - start));
 	}
 	
 	@SuppressWarnings("unchecked")
